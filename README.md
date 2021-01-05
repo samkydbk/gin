@@ -1,2 +1,2 @@
-# gin
-gin
+# gin-learn
+gin学习
