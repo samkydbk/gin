@@ -6,6 +6,6 @@ type User struct {
 	Sex        string
 	Phone      string
 	Password   string
-	CreateTime int64
-	UpdateTime int64
+	CreateTime string
+	UpdateTime string
 }
