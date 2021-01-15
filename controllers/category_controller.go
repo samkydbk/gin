@@ -3,8 +3,8 @@ package controllers
 import (
     "github.com/gin-gonic/gin"
     "net/http"
-    "myweb/app/logics"
-    "myweb/app/models"
+    "myweb/logics"
+    "myweb/models"
     "strconv"
 )
 

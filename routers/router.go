@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"myweb/app/controllers"
+	"myweb/controllers"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,8 +9,8 @@ import (
 func InitRouter() *gin.Engine {
 
 	router := gin.Default()
-	router.Static("/static", "app/static")
-	router.LoadHTMLGlob("app/templates/*")
+	router.Static("/static", "static")
+	router.LoadHTMLGlob("templates/*")
 	router.GET("/error", controllers.ErrorPage)
 	router.GET("/categories", controllers.ListCategory)
 	router.GET("/categories/new", controllers.NewCategory)
@@ -24,5 +24,6 @@ func InitRouter() *gin.Engine {
 	router.GET("/posts/edit/:id", controllers.EditPost)
 	router.POST("/posts/update/:id", controllers.UpdatePost)
 	router.GET("/posts/delete/:id", controllers.DeletePost)
+	router.GET("/user/list", controllers.ListUser)
 	return router
 }

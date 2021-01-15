@@ -1,8 +1,8 @@
 package main
 
 import (
-	"myweb/app/core"
-	"myweb/app/routers"
+	"myweb/core"
+	"myweb/routers"
 )
 
 func main() {

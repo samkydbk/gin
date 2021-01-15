@@ -1,9 +1,10 @@
 package logics
 
 import (
-	"myweb/app/models"
-	"myweb/app/core"
+	"myweb/core"
+	"myweb/models"
 )
+
 var db = core.Connection()
 
 func ListCategory(datas []models.Category) ([]models.Category, error) {
@@ -12,7 +13,7 @@ func ListCategory(datas []models.Category) ([]models.Category, error) {
 }
 
 func CreateCategory(data models.Category) (int64, error) {
-	result := db.Create(&data) 
+	result := db.Create(&data)
 	return data.ID, result.Error
 }
 

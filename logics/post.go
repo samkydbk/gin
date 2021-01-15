@@ -1,7 +1,7 @@
 package logics
 
 import (
-	"myweb/app/models"
+	"myweb/models"
 )
 
 func ListPost(datas []models.Post, page int) ([]models.Post, int64, error) {
