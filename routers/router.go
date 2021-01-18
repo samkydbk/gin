@@ -24,6 +24,8 @@ func InitRouter() *gin.Engine {
 	router.GET("/posts/edit/:id", controllers.EditPost)
 	router.POST("/posts/update/:id", controllers.UpdatePost)
 	router.GET("/posts/delete/:id", controllers.DeletePost)
-	router.GET("/user/list", controllers.ListUser)
+	router.GET("/user/list", controllers.UserList)
+	router.GET("/user/create", controllers.UserCreate)
+
 	return router
 }
