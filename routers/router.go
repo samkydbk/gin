@@ -12,20 +12,10 @@ func InitRouter() *gin.Engine {
 	router.Static("/static", "static")
 	router.LoadHTMLGlob("templates/*")
 	router.GET("/error", controllers.ErrorPage)
-	router.GET("/categories", controllers.ListCategory)
-	router.GET("/categories/new", controllers.NewCategory)
-	router.POST("/categories/create", controllers.CreateCategory)
-	router.GET("/categories/edit/:id", controllers.EditCategory)
-	router.POST("/categories/update/:id", controllers.UpdateCategory)
-	router.GET("/categories/delete/:id", controllers.DeleteCategory)
-	router.GET("/posts", controllers.ListPost)
-	router.GET("/posts/new", controllers.NewPost)
-	router.POST("/posts/create", controllers.CreatePost)
-	router.GET("/posts/edit/:id", controllers.EditPost)
-	router.POST("/posts/update/:id", controllers.UpdatePost)
-	router.GET("/posts/delete/:id", controllers.DeletePost)
+	//用户增删改查及列表
 	router.GET("/user/list", controllers.UserList)
-	router.GET("/user/create", controllers.UserCreate)
-
+	router.POST("/user/create", controllers.createUser)
+	router.POST("/user/search/:id", controllers.searchUser)
+	router.GET("/user/del/:id", controllers.delUser)
 	return router
 }
