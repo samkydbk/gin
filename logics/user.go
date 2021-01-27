@@ -1,19 +1,23 @@
 package logics
 
 import (
+	"myweb/core"
 	"myweb/models"
 )
 
+var db = core.Connection()
+
 //用户列表
-func UserList(datas []models.User, page int) ([]models.User, int64, error) {
-	var pageSize = 2
-	offset := (page - 1) * pageSize
+func UserList(datas []models.User, page int64) ([]models.User, int64, error) {
+	pageSize := 2
+	//offset := (page - 1) * pageSize
+	offset := 0
 	result := db.Order("id desc").Offset(offset).Limit(pageSize).Find(&datas)
 	return datas, result.RowsAffected, result.Error
 }
 
 //增加用户
-func createUser(data models.User) (int64, error) {
+func CreateUser(data models.User) (uint64, error) {
 	result := db.Create(&data)
 	return data.ID, result.Error
 	// user := models.User{Name: "abc", Sex: 1, Phone: "13228016321"}
@@ -22,17 +26,17 @@ func createUser(data models.User) (int64, error) {
 }
 
 //查询用户
-func searchUser(id int64) (models.User, error) {
+func SearchUser(id int64) (models.User, error) {
 	var model models.User
 	result := db.First(&model, id)
 	return model, result.Error
 }
 
 //修改用户
-func updateUser(data models.User, id int64) (int64, error) {
+func UpdateUser(data models.User, id int64) (uint64, error) {
 	var model models.User
 	row := db.First(&model, id)
-	if row.Error == nill {
+	if row.Error == nil {
 		result := db.Model(&model).Updates(&data)
 		return model.ID, result.Error
 	}
@@ -40,7 +44,7 @@ func updateUser(data models.User, id int64) (int64, error) {
 }
 
 //删除用户
-func delUser(id int64) (int64, error) {
+func DelUser(id int64) (int64, error) {
 	var model models.User
 	result := db.Delete(&model, id)
 	return result.RowsAffected, result.Error
