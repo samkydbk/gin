@@ -50,6 +50,9 @@ func SearchUser(c *gin.Context) {
 	//获取get信息 请求方式二
 	//fmt.Println("id:", c.Query("id"))
 
+	//多参数的查询 id name
+	fmt.Println("id:", c.Query("id"), " name:", c.Query("name"))
+
 	//将字符串转换为数字函数ParseInt 字符串,进制,返回大小
 	id, _ := strconv.ParseInt(c.Query("id"), 10, 64)
 	res, err := logics.SearchUser(id)
