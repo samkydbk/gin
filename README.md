@@ -5,6 +5,9 @@ gin学习
 goframe
 https://goframe.org/pages/viewpage.action?pageId=3672796
 
+gin框架
+https://gin-gonic.com/
+https://www.gin-vue-admin.com/docs/
 
 ## golang开发手册
 https://www.kancloud.cn/shuangdeyu/gin_book/949417
